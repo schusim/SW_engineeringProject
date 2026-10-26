@@ -1,0 +1,99 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="-__ntTmgdugjLxx7Qiux">
+    <mxGraphModel dx="2167" dy="983" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="550" width="575" x="-95" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-46" edge="1" parent="1" source="Dpp-oLAR2-iaLQswU_yQ-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Dpp-oLAR2-iaLQswU_yQ-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-47" connectable="0" parent="Dpp-oLAR2-iaLQswU_yQ-46" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="PUB" vertex="1">
+          <mxGeometry relative="1" x="-0.4102" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-44" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="300" width="560" x="-280" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-42" edge="1" parent="1" source="Dpp-oLAR2-iaLQswU_yQ-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Dpp-oLAR2-iaLQswU_yQ-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-12" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="Sensor" vertex="1">
+          <mxGeometry height="120" width="160" x="-240" y="232" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-13" parent="Dpp-oLAR2-iaLQswU_yQ-12" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="- Sensor Type&lt;div&gt;- Sensor data&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-14" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="MCU" vertex="1">
+          <mxGeometry height="150" width="195" x="40" y="217" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-15" parent="Dpp-oLAR2-iaLQswU_yQ-14" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="- Read Sensor +&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;Sanity Check&lt;/span&gt;&lt;div&gt;- construct message&amp;nbsp;&lt;/div&gt;&lt;div&gt;(Sensor ID, timestamp, data)&lt;/div&gt;&lt;div&gt;- sign message&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;-publish mqtt topic&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="195" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-17" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="MQTTS broker" vertex="1">
+          <mxGeometry height="120" width="160" x="-105" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-18" parent="Dpp-oLAR2-iaLQswU_yQ-17" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="&amp;nbsp;sensors/&amp;lt;type&amp;gt;/&amp;lt;id&amp;gt;" vertex="1">
+          <mxGeometry height="70" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-48" edge="1" parent="1" source="Dpp-oLAR2-iaLQswU_yQ-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="Dpp-oLAR2-iaLQswU_yQ-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-50" connectable="0" parent="Dpp-oLAR2-iaLQswU_yQ-48" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="SUB" vertex="1">
+          <mxGeometry relative="1" x="0.1196" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-19" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="Digestor" vertex="1">
+          <mxGeometry height="140" width="170" x="220" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-20" parent="Dpp-oLAR2-iaLQswU_yQ-19" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="- sub sensors/*&lt;div&gt;- check signature&amp;nbsp;&lt;/div&gt;&lt;div&gt;- handler per sensor type&lt;/div&gt;&lt;div&gt;- sanitize input&amp;nbsp;&lt;/div&gt;&lt;div&gt;- timestamp + hash&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="170" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-24" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="Postgres" vertex="1">
+          <mxGeometry height="240" width="270" x="55" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-25" parent="Dpp-oLAR2-iaLQswU_yQ-24" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="- Sensor registry table&amp;nbsp;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Sensors (id, type, location, pubKey, last seen)&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;- measurment table per sensor type&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;imu_readings(id, sensor id, timestamp , dataVec)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- views for logic modules&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" width="270" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-37" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="Logic" vertex="1">
+          <mxGeometry height="120" width="240" x="-420" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-38" parent="Dpp-oLAR2-iaLQswU_yQ-37" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="- Different Logic Modules for different tasks.&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="240" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-57" edge="1" parent="1" source="Dpp-oLAR2-iaLQswU_yQ-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" target="Dpp-oLAR2-iaLQswU_yQ-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-39" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="postgREST" vertex="1">
+          <mxGeometry height="120" width="160" x="110" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-40" parent="Dpp-oLAR2-iaLQswU_yQ-39" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="Restful API for postgres&amp;nbsp;" vertex="1">
+          <mxGeometry height="70" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-45" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Sensor Module" vertex="1">
+          <mxGeometry height="30" width="195" x="-95" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-53" edge="1" parent="1" source="Dpp-oLAR2-iaLQswU_yQ-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="Dpp-oLAR2-iaLQswU_yQ-40">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-70" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-54" connectable="0" parent="Dpp-oLAR2-iaLQswU_yQ-53" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="GET" vertex="1">
+          <mxGeometry relative="1" x="0.049" y="4" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-56" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Database" vertex="1">
+          <mxGeometry height="30" width="60" x="140" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Dpp-oLAR2-iaLQswU_yQ-58" edge="1" parent="1" source="Dpp-oLAR2-iaLQswU_yQ-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="Dpp-oLAR2-iaLQswU_yQ-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

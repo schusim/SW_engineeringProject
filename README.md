@@ -82,18 +82,6 @@ flowchart LR
 - Retrospektiven: [`docs/retro.md`](docs/retro.md)
 - Architektur: [`docs/architecture.md`](docs/architecture.md) ->  TODO KF for Week3
 
-### Git 
-
-NEVER PUSH TO MAIN!! 
-
-#### Branch Naming convention 
-
-Hierarchical Branch structure. 
-
-    planning/<name>  --planning branch 
-    feature/<name>   --feature branch 
-    bugfix/<name>    --bugfix branch 
-    
 
 ---
 

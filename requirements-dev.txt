@@ -22,10 +22,14 @@
 # https://pip.pypa.io/en/stable/reference/requirements-file-format/     |
 # ----------------------------------------------------------------------|
 
-# requirements to develop:
-pytest
-
 # link to the requirements file to run the application 
 -r requirements.txt
+
+# requirements to develop:
+pytest==9.1.1
+ruff==0.16.9
+mypy==1.20.2
+types-requests==2.33.0.20260906
+
 
 

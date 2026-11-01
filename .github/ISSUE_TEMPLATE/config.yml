@@ -1,0 +1,4 @@
+# GitHub Issue Template Configuration
+
+# maybe change this to false if we dont want to allow blank issues
+blank_issues_enabled: true

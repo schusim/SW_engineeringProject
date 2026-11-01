@@ -1,0 +1,108 @@
+
+name: Documentation
+description: Create, improve or update project documentation.
+title: "[Docs]: "
+
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Documentation Category
+      description: What kind of documentation is required?
+      options:
+        - README
+        - Architecture / C4 Diagram
+        - API Documentation
+        - Installation / Setup Guide
+        - Development Guidelines
+        - User Guide
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What needs to be documented and why?
+      placeholder: |
+        Describe the documentation task.
+
+        Explain its purpose and target audience.
+    validations:
+      required: true
+
+  - type: input
+    id: files
+    attributes:
+      label: Affected Files
+      description: Which documentation files are affected?
+      placeholder: "README.md, docs/architecture.md"
+    validations:
+      required: false
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Documentation Requirements
+      description: What information must be included?
+      placeholder: |
+        - Explain the functionality
+        - Include examples where appropriate
+        - Add Mermaid diagrams if required
+        - Reference related documentation
+    validations:
+      required: true
+
+  - type: textarea
+    id: dod
+    attributes:
+      label: Definition of Done (DoD)
+      description: |
+        Define when the documentation is complete.
+        Adjust the checklist for the specific task.
+      value: |
+        - [ ] All documentation requirements fulfilled
+        - [ ] Content is technically accurate and up to date
+        - [ ] Markdown formatting is correct
+        - [ ] Mermaid diagrams render correctly (if applicable)
+        - [ ] Links and references verified
+        - [ ] Documentation is understandable and complete
+        - [ ] Pull request reviewed by another team member
+        - [ ] CI pipeline successful
+        - [ ] Changes merged into main
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Effort Estimation
+      description: Estimate the effort during Sprint Planning.
+      options:
+        - "1 - Small"
+        - "2 - Medium"
+        - "3 - Large"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Link related or blocking issues.
+      placeholder: "None or #123"
+    validations:
+      required: false

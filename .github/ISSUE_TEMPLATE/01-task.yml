@@ -1,0 +1,83 @@
+
+name: Development Task
+description: Create a task for the software engineering project.
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Development Task
+        Please describe the task clearly.
+        Define the acceptance criteria before starting.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What needs to be done and why?
+      placeholder: Describe the task and its purpose.
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: What functionality is expected?
+      placeholder: |
+        - Requirement 1
+        - Requirement 2
+        - Requirement 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: dod
+    attributes:
+      label: Definition of Done (DoD)
+      description: |
+        Define when this task is considered complete.
+        Adjust the checklist to match the task.
+      value: |
+        - [ ] Requirements fulfilled
+        - [ ] Unit tests passing (if applicable)
+        - [ ] Ruff and mypy checks passing (if applicable)
+        - [ ] Documentation updated (if applicable)
+        - [ ] Pull request reviewed
+        - [ ] CI pipeline successful
+        - [ ] Changes merged into main
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Effort Estimation
+      description: Estimate the effort during Sprint Planning.
+      options:
+        - "1 - Small"
+        - "2 - Medium"
+        - "3 - Large"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Link related or blocking issues.
+      placeholder: "None or #123"
+    validations:
+      required: false

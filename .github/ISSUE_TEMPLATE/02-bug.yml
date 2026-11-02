@@ -1,0 +1,90 @@
+
+name: Bug Report
+description: Report a bug or unexpected behavior.
+title: "[Bug]: "
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: What is not working correctly?
+      placeholder: Describe the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can someone reproduce the bug?
+      placeholder: |
+        1. Start the application
+        2. Execute ...
+        3. Observe the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What happens instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots
+      description: Add relevant logs or screenshots.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: dod
+    attributes:
+      label: Definition of Done (DoD)
+      value: |
+        - [ ] Root cause identified
+        - [ ] Bug fixed
+        - [ ] Regression test added
+        - [ ] Existing tests passing
+        - [ ] Ruff and mypy checks passing
+        - [ ] Pull request reviewed
+        - [ ] CI pipeline successful
+        - [ ] Changes merged into main
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Effort Estimation
+      options:
+        - "1 - Small"
+        - "2 - Medium"
+        - "3 - Large"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true

@@ -143,3 +143,8 @@ Branch names use the same types as commit messages. So a branch and its commits 
 ## Getting Started
 
 _kommt noch..._
+
+## Architecture 
+
+- C4 can be found [here](docs/architecture.md)  
+- Database Etnity Relationship can be found [here](docs/DB_structure.md)

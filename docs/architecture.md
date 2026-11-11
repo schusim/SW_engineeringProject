@@ -25,17 +25,21 @@ An IoT sensor generates data through measurements. This data is sent to the soft
 ## Level 2 Container
 ```mermaid
 flowchart TB
-    iot["IoT-Device<br/>[Container: C / Microcontroller]<br/>Publishes IMU sensor data & errors"]
-    mqtt["MQTT-Broker<br/>[Container: Mosquitto]<br/>Message broker"]
+    subgraph Microcontroller ["Docker Simulation / Microcontroller"]
+        iot["IoT-Device<br/>[Container: Python (Simulation) / C (Microcontroller)]<br/>Publishes IMU sensor data & errors"]
+    end
     
-    subgraph server1 ["server 1"]
-        collector["Ingestion Service<br/>[Container: Python 3.12]<br/>Subscribes MQTT, handles sensor errors & writes to DB"]
+    subgraph docker1 ["Docker 1"]
+        mqtt["MQTT-Broker<br/>[Container: Mosquitto]<br/>Message broker"]
+        collector["Ingestion Service<br/>[Container: Python]<br/>Subscribes MQTT, handles sensor errors & writes to DB"]
     end
 
-    db[("Database<br/>[Container: SQLite]<br/>Stores measurements & logs")]
+    subgraph docker2 ["Docker 2"]
+        db[("Database<br/>[Container: SQLite]<br/>Stores measurements & logs")]
+    end
 
-    subgraph server2 ["server 2"]
-        api["API / Backend Service<br/>[Container: Python 3.12]<br/>Handles user requests"]
+    subgraph docker3 ["Docker 3"]
+        api["API / Backend Service<br/>[Container: Python]<br/>Handles user requests"]
         present["Presentation (MPL)<br/>[Container: Python]<br/>Visualizes sensor data"]
     end
 
@@ -51,7 +55,7 @@ flowchart TB
     class iot,collector,api,present container
     class mqtt,db external
 ```
-This diagram shows the independent runtime units (containers) of your system and how they are distributed across various devices. The IoT device publishes sensor data and error messages to the central Mosquitto broker via the MQTT protocol. The Ingestion Service receives these messages, processes events, and stores the data persistently in the SQLite database. Separately, the API/Backend Service retrieves the stored data as needed to make it available for visualization via HTTP/JSON.
+This diagram shows the independent runtime units (containers) of the system and how they are distributed across various devices. The IoT device publishes sensor data and error messages to the central Mosquitto broker via the MQTT protocol. The Ingestion Service receives these messages, processes events, and stores the data persistently in the SQLite database. Separately, the API/Backend Service retrieves the stored data as needed to make it available for visualization via HTTP/JSON.
 
 
 ## Level 3 Component
@@ -59,14 +63,15 @@ This diagram shows the independent runtime units (containers) of your system and
 ### MQTT Subscriber
 ```mermaid
 flowchart TB
-    subgraph Ingestion ["Ingestion Service [Container: Python 3.12]"]
+    subgraph Ingestion ["Ingestion Service [Container: Python]"]
         config["Config<br/>[Component]<br/>Reads configuration"]
+        mqtt["MQTT-Broker<br/>[External System]"] -->|"Messages & Errors"| subscriber
         subscriber["MQTT Subscriber<br/>[Component]<br/>Subscribes to MQTT topic & receives payloads"]
         handler["Event Handler<br/>[Component]<br/>Catches sensor errors & processes events"]
         store["SqliteStore<br/>[Component]<br/>Persists measurements & logs"]
     end
 
-    mqtt["MQTT-Broker<br/>[External System]"] -->|"Messages & Errors"| subscriber
+    
     subscriber --> handler
     handler --> store
     store -->|"SQL Insert"| db[("Database<br/>[SQLite]")]
@@ -84,12 +89,13 @@ The application is a subscriber to the MQTT broker. The data is checked for erro
 ### Backend Handler
 ```mermaid
 flowchart TB
-    subgraph ApiService ["API / Backend Service [Container: Python 3.12]"]
+    subgraph ApiService ["API / Backend Service [Container: Python]"]
         router["HTTP Server / Router<br/>[Component]<br/>Receives HTTP requests"]
         retriever["Data Retriever<br/>[Component]<br/>Queries and prepares data"]
+        present["Presentation (MPL)<br/>[External / Client]"] -->|"HTTP Request"| router
     end
 
-    present["Presentation (MPL)<br/>[External / Client]"] -->|"HTTP Request"| router
+    
     router --> retriever
     retriever -->|"SQL Query"| db[("Database<br/>[SQLite]")]
     db -->|"Raw Data"| retriever

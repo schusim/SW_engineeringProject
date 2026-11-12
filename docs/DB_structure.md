@@ -4,22 +4,22 @@ Within this project, we use [PostgreSQL](https://www.postgresql.org/). To intera
 
 ## Entity Relationship Diagram 
 
-```Mermaid
+```mermaid
 erDiagram
-
     Sensors {
         integer SensorID(PK)
+        text Name
         text Type
+        text Location
+        boolean Active
     }
-
-    Sensors ||--|{ Measurements : SensorID
 
     Measurements {
         integer MeasurementID(PK)
         integer SensorID(FK) 
-        jsonb Data 
         timestamptz Timestamp 
-        Hash string
+        jsonb Data 
+        text Hash
     }
 
-```
+    Sensors ||--|{ Measurements : "records"

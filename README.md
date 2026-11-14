@@ -49,6 +49,7 @@ flowchart LR
 
 - Ein Sensorknoten (ESP32) sendet Rohdaten (Beschleunigung, Drehrate) in festem Intervall per MQTT
 - Simulator mit identischem Nachrichtenformat
+- MQTT-Konfiguration des Sensorknotens: Sendefrequenz und Zeitsynchronisierung mit Bestätigung
 - Python-App: MQTT empfangen, validieren, auswerten, speichern
 - Logik: Neigung, Bewegungszustand, Statistik pro Zeitfenster
 - Datenbank mit austauschbarer Storage-Schnittstelle
@@ -58,7 +59,7 @@ flowchart LR
 
 ### Nicht in Version 1 (Erweiterungen, falls Zeit bleibt)
 
-- Befehle an den Knoten per MQTT (z. B. Kalibrierung mit Bestätigung)
+- Weitere Befehle an den Knoten per MQTT (z. B. Kalibrierung)
 - Web-Oberfläche mit Chart
 - Mehrere Sensorknoten gleichzeitig
 - TLS-Verschlüsselung, OTA-Updates der Firmware
@@ -81,6 +82,7 @@ flowchart LR
 - Sprint = Zeit zwischen Vorlesungen
 - Retrospektiven: [`docs/retro.md`](docs/retro.md)
 - Architektur: [`docs/architecture.md`](docs/architecture.md) ->  TODO KF for Week3
+- MQTT messages and topics: [`docs/API/MQTT/MQTT-Messages-and-Topics.md`](docs/API/MQTT/MQTT-Messages-and-Topics.md)
 
 
 ---

@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    name: ruff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: install deps
+        run: pip install -r requirements-dev.txt
+
+      - name: ruff lint
+        run: ruff check --output-format=github .
+
+      - name: ruff format
+        run: ruff format --check .
+
+  typecheck:
+    name: mypy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: install deps
+        run: pip install -r requirements-dev.txt
+
+      # guard: mypy exits 2 when repo has no .py files yet
+      - name: mypy
+        run: |
+          files=$(git ls-files '*.py' ':!venv' ':!.venv')
+          if [ -n "$files" ]; then
+            mypy $files
+          else
+            echo "no python files yet, skipping"
+          fi

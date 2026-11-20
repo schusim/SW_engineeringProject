@@ -1,0 +1,17 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.1.4-alpine
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+    networks:
+      - iot-net
+    restart: unless-stopped
+
+networks:
+  iot-net:
+    driver: bridge

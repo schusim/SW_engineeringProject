@@ -140,6 +140,31 @@ If you use `!`, you can skip the footer. Then the description must explain the b
 
 Branch names use the same types as commit messages. So a branch and its commits describe the work in the same way.
 
+## MQTT Broker (Docker)
+The MQTT-Broker runs as a ontainer with **Eclipse Mosquitto** (`eclipse-mosquitto:2.1.4-alpine`) on the shared Docker network `iot-net` and listens on port `1883`.
+
+**Start the docker with the mqtt-brocker:**
+```bash
+docker compose up -d
+docker compose ps
+docker compose logs --tail 20
+```
+
+**Stop the container**
+```bash
+docker compose down
+```
+
+**Local function Test**
+Terminal 1 - start subscriber:
+```bash 
+docker exec -it mosquitto mosquitto_sub -h localhost -p 1883 -t "sensors/v1/#" -v
+```
+Terminal 2 - send testmessage:
+```bash
+docker exec -it mosquitto mosquitto_pub -h localhost -p 1883 -t "sensors/v1/esp32-01/imu/imu-01/measurements" -m '{"device_id":"esp32-01","sensor_id":"imu-01","message_counter":0,"boot_counter":1}'
+```
+If every thing runs correct the sented message shoult pop up in the Terminal 1.
 
 ---
 ## Getting Started

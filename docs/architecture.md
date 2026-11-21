@@ -35,7 +35,7 @@ flowchart TB
     end
 
     subgraph docker2 ["Docker 2"]
-        db[("Database<br/>[Container: SQLite]<br/>Stores measurements & logs")]
+        db[("Database<br/>[Container: PostgreSQL]<br/>Stores measurements & logs")]
     end
 
     subgraph docker3 ["Docker 3"]
@@ -55,7 +55,7 @@ flowchart TB
     class iot,collector,api,present container
     class mqtt,db external
 ```
-This diagram shows the independent runtime units (containers) of the system and how they are distributed across various devices. The IoT device publishes sensor data and error messages to the central Mosquitto broker via the MQTT protocol. The Ingestion Service receives these messages, processes events, and stores the data persistently in the SQLite database. Separately, the API/Backend Service retrieves the stored data as needed to make it available for visualization via HTTP/JSON.
+This diagram shows the independent runtime units (containers) of the system and how they are distributed across various devices. The IoT device publishes sensor data and error messages to the central Mosquitto broker via the MQTT protocol. The Ingestion Service receives these messages, processes events, and stores the data persistently in the PostgreSQL database. Separately, the API/Backend Service retrieves the stored data as needed to make it available for visualization via HTTP/JSON.
 
 
 ## Level 3 Component
@@ -74,7 +74,7 @@ flowchart TB
     
     subscriber --> handler
     handler --> store
-    store -->|"SQL Insert"| db[("Database<br/>[SQLite]")]
+    store -->|"SQL Insert"| db[("Database<br/>[PostgreSQL]")]
     config -.->|"Settings"| subscriber
     config -.->|"Settings"| store
 
@@ -97,7 +97,7 @@ flowchart TB
 
     
     router --> retriever
-    retriever -->|"SQL Query"| db[("Database<br/>[SQLite]")]
+    retriever -->|"SQL Query"| db[("Database<br/>[PostgreSQL]")]
     db -->|"Raw Data"| retriever
     retriever -->|"HTTP Response [JSON]"| present
 
@@ -119,7 +119,7 @@ sequenceDiagram
     participant IoT as IoT-Device
     participant MQTT as MQTT-Broker
     participant Client as Python Client
-    participant DB as SQLite Database
+    participant DB as PostgreSQL Database
     participant backend as Python backend
     participant MPL as Presentation (MPL)
 

@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      - POSTGRES_DB=mydb
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@engineering.com 
+      PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_PASSWORD}
+    ports: 
+      - "5050:80"  
+
+volumes:
+  db_data:
+  pgadmin_data:

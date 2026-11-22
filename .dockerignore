@@ -1,0 +1,18 @@
+# Container runtime data is not part of a build.
+mqtt-broker/data/
+mqtt-broker/log/
+ingestion-service/data/
+ingestion-service/log/
+
+# Keep local credentials, Git history and Python caches out of build contexts.
+.env
+.env.*
+**/.env
+**/.env.*
+.git/
+.venv/
+venv/
+**/__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

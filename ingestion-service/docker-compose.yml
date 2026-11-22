@@ -1,0 +1,23 @@
+services:
+  ingestion-service:
+    build:
+      context: ..
+      dockerfile: ingestion-service/Dockerfile
+
+    init: true
+    restart: unless-stopped
+
+    env_file:
+      - path: ../.env
+        required: false
+
+    volumes:
+      - ./config/config.ini:/app/config/config.ini:ro
+
+    networks:
+      - iot-net
+
+networks:
+  iot-net:
+    name: iot-net
+    external: true

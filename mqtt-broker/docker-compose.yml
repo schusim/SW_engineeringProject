@@ -12,6 +12,8 @@ services:
       - iot-net
     restart: unless-stopped
 
+# External network for IoT devices added by flo for ingestion service integration
 networks:
   iot-net:
-    driver: bridge
+    name: iot-net
+    external: true

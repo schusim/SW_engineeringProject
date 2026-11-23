@@ -7,18 +7,20 @@ Within this project, we use [PostgreSQL](https://www.postgresql.org/). To intera
 ```mermaid
 erDiagram
     device {
-        text device_id(PK)
+        uuid device_id(PK)
+        text device_name
     }
 
     sensor {
-        text device_id(PK,FK)
-        text sensor_id(PK)
+        uuid device_id(PK,FK)
+        uuid sensor_id(PK)
+        text sensor_name
     }
 
     measurement {
-        integer measurement_id(PK)
-        text device_id(FK)
-        text sensor_id(FK)
+        uuid measurement_id(PK)
+        uuid device_id(FK)
+        uuid sensor_id(FK)
         timestamptz timestamp
         text measurement_type
         integer boot_counter
@@ -27,9 +29,9 @@ erDiagram
     }
 
     error {
-        integer error_id(PK)
-        text device_id(FK)
-        text sensor_id(FK)
+        uuid error_id(PK)
+        uuid device_id(FK)
+        uuid sensor_id(FK)
         timestamptz timestamp
         integer boot_counter
         integer message_counter
@@ -37,9 +39,18 @@ erDiagram
         text message
     }
 
+    config {
+        uuid config_id(PK)
+        uuid sensor_id(FK)
+        timestamptz timestamp
+        int refresh_rate
+
+    }
+
     device ||--|{ sensor : "contains"
     sensor ||--|{ measurement : "records"
     sensor ||--|{ error : "records"
+    sensor ||--|{ config : "records"
 ```
 
 The composite key `(device_id, sensor_id)` identifies a sensor and is used consistently

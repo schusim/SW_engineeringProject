@@ -30,8 +30,11 @@ flowchart TB
     end
     
     subgraph docker1 ["Docker 1"]
-        mqtt["MQTT-Broker<br/>[Container: Mosquitto]<br/>Message broker"]
         collector["Ingestion Service<br/>[Container: Python]<br/>Subscribes MQTT, handles sensor errors & writes to DB"]
+    end
+
+    subgraph docker_mqtt ["Docker MQTT-Brocker"]
+        mqtt["MQTT-Broker<br/>[Container: Mosquitto]<br/>Message broker"]
     end
 
     subgraph docker2 ["Docker 2"]
@@ -65,7 +68,6 @@ This diagram shows the independent runtime units (containers) of the system and 
 flowchart TB
     subgraph Ingestion ["Ingestion Service [Container: Python]"]
         config["Config<br/>[Component]<br/>Reads configuration"]
-        mqtt["MQTT-Broker<br/>[External System]"] -->|"Messages & Errors"| subscriber
         subscriber["MQTT Subscriber<br/>[Component]<br/>Subscribes to MQTT topic & receives payloads"]
         handler["Event Handler<br/>[Component]<br/>Catches sensor errors & processes events"]
         store["SqliteStore<br/>[Component]<br/>Persists measurements & logs"]
@@ -73,6 +75,7 @@ flowchart TB
 
     
     subscriber --> handler
+    mqtt["MQTT-Broker<br/>[External System]"] -->|"Messages & Errors"| subscriber
     handler --> store
     store -->|"SQL Insert"| db[("Database<br/>[PostgreSQL]")]
     config -.->|"Settings"| subscriber

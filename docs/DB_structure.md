@@ -41,6 +41,7 @@ erDiagram
 
     config {
         uuid config_id(PK)
+        uuid device_id(FK)
         uuid sensor_id(FK)
         timestamptz timestamp
         int refresh_rate

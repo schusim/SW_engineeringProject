@@ -6,6 +6,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - db_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d:ro
   
   pgadmin:
     image: dpage/pgadmin4
@@ -13,8 +14,22 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@engineering.com 
       PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
     ports: 
-      - "5050:80"  
+      - "5050:80" 
+
+  postgrest:
+    image: postgrest/postgrest:latest
+    ports:
+      - "3000:3000"
+    environment:
+      PGRST_DB_URI: "postgres://authenticator:${POSTGREST_DB_PASSWORD}@db:5432/mydb"
+      PGRST_DB_SCHEMAS: "public"
+      PGRST_DB_ANON_ROLE: "anon"
+      PGRST_JWT_SECRET: "${PGRST_JWT_SECRET}"
+    depends_on:
+      - db
 
 volumes:
   db_data:

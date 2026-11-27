@@ -26,7 +26,7 @@ Die C4-Architektur wurde an unsere Besprechungen angepasst. Ruff und mypy wurden
 Nächste Schritte wurden zugeteilt: 
 - Mathias: Starten IMU Simulation
 - Simon S: Starten backend zu Präsentationsschicht
-- Jan: Mqtt-Brocker in Docker aufsetzen, retro in Git aufnehmen
+- Jan: Mqtt-Broker in Docker aufsetzen, retro in Git aufnehmen
 - Simon L: Starten Datenbank
 - Florian: Starten Ingestion Service
 
@@ -37,3 +37,24 @@ Unklar ob wenn mehrere Reviewer angewählt werden alle ein Review geben sollen. 
 **Änderungen für nächsten Sprint:**
 
 Wenn es nicht relevant ist, wer das Review macht, alle Personen als Reviewer anwählen, um Wartezeit auf Review zu verkürzen.
+
+## Sprint 3 (bis 22.11.2026)
+**Gut lief:**
+
+Mqtt-Broker wurde aufgesetzt. In allen anderen Programmteilen wurde mit der Implementation gestartet. Mqtt-Brocker soll trozdem eigenen Docker Container erhalten.
+Git Pipline mit automatischer Prüfung wurde getestet, Ruff angepasst zur automatischer Formatierung und nicht nur Warnung.
+
+Nächste Schritte wurden zugeteilt: 
+- Mathias: weiter IMU Simulation
+- Simon S: weiter backend zu Präsentationsschicht
+- Jan: README überarbeiten und auf englisch übersetzen
+- Simon L: weiter Datenbank
+- Florian: weiter Ingestion Service
+
+**Schlecht lief:**
+
+Unklarheiten mit `docker-compose.yml` File sind entstanden -> mehrere sind in unterschiedlichen Ordner entstanden. 
+
+**Änderungen für nächsten Sprint:**
+
+Einzelne `Dockerfile` für die Unterschidlichen Container gemäss `architecture.md` Diagram. Jedoch nur ein zentrales `docker-compose.yml` File für um alle Docker zusammen zu starten.

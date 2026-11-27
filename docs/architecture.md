@@ -110,8 +110,10 @@ flowchart TB
 The data is retrieved from the database upon a user's request. The data is then formatted for visualization and displayed to the user.
 
 ## Level 4 Code
-We'll add this once we've started programming.
-Zoom into one component. Only draw this level for the important parts, for example your storage interface.
+
+- Database Etnity Relationship can be found [here](DB_structure.md)
+- MQTT messages and topicscan be found [here](API/MQTT/MQTT_API-Specification.md)
+
 ## Dynamic view
 ```mermaid
 sequenceDiagram

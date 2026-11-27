@@ -68,7 +68,6 @@ flowchart LR
 - Sprint = time between lectures
 - Retrospectives: [`docs/retro.md`](docs/retro.md)
 - Architecture: [`docs/architecture.md`](docs/architecture.md)
-- MQTT messages and topics: [`docs/API/MQTT/MQTT-Messages-and-Topics.md`](docs/API/MQTT/MQTT-Messages-and-Topics.md)
 
 
 ---
@@ -160,4 +159,4 @@ _kommt noch..._
 ## Architecture 
 
 - C4 can be found [here](docs/architecture.md)  
-- Database Etnity Relationship can be found [here](docs/DB_structure.md)
+
